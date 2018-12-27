@@ -1,0 +1,202 @@
+<template>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <router-link class="nav-link" to="/home">
+        <h1>
+          <a class="logo" href="#">宇宙堂</a>
+        </h1>
+      </router-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >店舗情報</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">新宿本店</a>
+              <a class="dropdown-item" href="#">新宿西口文具館</a>
+              <a class="dropdown-item" href="#">池袋パルコ店</a>
+            </div>
+          </li>-->
+          <li class="nav-item">
+            <router-link to="/home">
+              <a class="nav-link" href="#realshop">店舗情報</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/home">
+              <a class="nav-link" href="src/views/Home.vue/#newsArea">お知らせ</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/home">
+              <a class="nav-link" href="#aboutAs">企業情報</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/shop">
+              <a class="nav-link" href="#">オンラインショップ</a>
+            </router-link>
+          </li>
+        </ul>
+        <!-- 使用者 -->
+        <div class="dropdown">
+          <button
+            class="btn btn-primary user"
+            type="button"
+            id="UserDropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fas fa-user text-white fa-2x" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="UserDropdown">
+            <a class="dropdown-item" href="#">ログイン</a>
+            <a class="dropdown-item" href="#">新規会員登録</a>
+          </div>
+        </div>
+
+        <!-- 購物車下拉選單 -->
+        <div class="dropdown">
+          <button
+            class="btn btn-primary cart"
+            type="button"
+            id="CartDropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fa fa-shopping-cart text-white fa-2x" aria-hidden="true"></i>
+            <span class="badge badge-pill badge-danger">{{cartlen}}</span>
+          </button>
+          <!-- 購物車下拉選單 -->
+          <div
+            class="dropdown-menu dropdown-menu-right p-3"
+            aria-labelledby="CartDropdown"
+            style="min-width: 500px;overflow:scroll;height:400px;"
+            data-offset="400"
+          
+          >
+            <h6>カートに追加しました</h6>
+            <table class="table table-sm" >
+              <tbody >
+                <tr v-for="item in cart.carts" :key="item.id" v-if="cart.carts.length">
+                  <td class="align-middle">
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger btn-sm"
+                      @click.prevent="removeCartItem(item.id)"
+                    >
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </td>
+                  <td class="align-middle">{{ item.product.title }}</td>
+                  <td class="align-middle" width="70">{{ item.qty }}{{item.product.unit}}</td>
+                  <td class="align-middle text-right" width="70">¥ {{item.total}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <router-link to="/customer_order">
+              <button class="btn btn-warning btn-block">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i> カートを見る
+              </button>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</template>
+
+<script>
+import $ from "jquery";
+
+export default {
+  name: "Navbar",
+  data() {
+    return {};
+  },
+  methods: {
+    removeCartItem(id) {
+      this.$store.dispatch("removeCartItem", id);
+    }
+  },
+  created() {
+    this.$store.dispatch("getCart");
+  },
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    },
+    cart() {
+      return this.$store.state.cart;
+    },
+    cartlen() {
+      return this.$store.state.cartlen;
+    }
+  }
+};
+</script>
+<style lang="sass" scope>
+@import "src/assets/helpers/grid.sass"
+
+.navbar
+    position: fixed
+    z-index: 100
+    width: 100%
+.navbar a
+  text-decoration: none
+h1
+  margin: 0px
+.logo
+  width: 200px
+  height: 54px
+  background-image: url(../assets/img/company-logo.png)
+  background-size: 65%
+  display: block
+  background-position: center center
+  text-indent: 101%
+  overflow: hidden
+  white-space: nowrap
+  background-repeat: no-repeat
+.navbar-nav .nav-item .nav-link
+  color: white
+  font-size: 1rem
+  padding: 1rem
+.cart
+  position: relative
+.btn .badge
+  position: absolute
+  right: 0.5rem
+  top: -0.1rem
++iphone6plus-1
+  .user
+    display: none 
+  .cart
+    display: none
++pad
+  .logo
+    background-position: 1rem center
+  .navbar-nav .dropdown-menu
+    position: absolute
+    width: 100%
+
+</style>
