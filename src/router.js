@@ -7,18 +7,13 @@ export default new Router({
   routes: [
     {
       path:'*',
-      redirect:'/login'
+      redirect:'/shop'
     },
     {
       path: '/home',
       name: 'Home',
       component: () => import('./views/Home.vue'),
     },
-    // {
-    //   path: '/categories',
-    //   name: 'Categories',
-    //   component: () => import('./views/Categories.vue'),
-    // },
     {
       path: '/shop',
       name: 'Shop',
@@ -64,21 +59,6 @@ export default new Router({
       name: 'CustomerCheckout',
       component: () => import('./views/CustomerCheckout.vue')
     },
-    // {
-    //   path: '/',
-    //   name: 'Dashboard',
-    //   component: () => import('./components/Dashboard.vue'),
-    //   children:[
-        
-    //     {
-    //       path: 'customer_checkout/:orderId',
-    //       name: 'CustomerCheckout',
-    //       component: () => import('./views/CustomerCheckout.vue'),
-    //       // meta: { requiresAuth: true }
-    //     },
-    //   ]
-     
-    // },
   ]
 })
 
