@@ -124,7 +124,7 @@
             <h2 class="bigger-navi__title text-contract">
               <p class="english">COMPANY</p>企業情報
             </h2>
-            <p class="about-text">世界堂は昭和15年、東京・新宿に
+            <p class="about-text">宇宙堂は平成31年、東京・新宿に
               <br>おいて創業いたしました。
               <br>
             </p>
@@ -143,7 +143,7 @@
           >
             <div class="box text-center">
               <h2 class="bigger-navi__title text-contract">
-                <p class="english">ONLINE SHOP</p>世界堂オンラインショップ
+                <p class="english">ONLINE SHOP</p>宇宙堂オンラインショップ
               </h2>
               <br>
               <router-link to="/shop">

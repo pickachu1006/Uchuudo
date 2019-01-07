@@ -4,7 +4,7 @@
       <div class="row">
         <!-- 購物清單 -->
         <div class="col-md-6">
-          <h3 >ショッピングカート</h3>
+          <h3>ショッピングカート</h3>
           <table class="table" v-if="cartlen!==0">
             <thead>
               <th></th>
@@ -51,6 +51,11 @@
                 @click.prevent="addCouponCode"
               >クーポン適用</button>
             </div>
+          </div>
+          <div class="text-right">
+          <router-link  to="/shop">
+            <button class="btn btn-outline-primary">ショッピングを続ける</button>
+          </router-link>
           </div>
         </div>
         <!-- 訂單 個人資料-->
@@ -123,9 +128,6 @@
                 <textarea name id class="form-control" cols="30" rows="5" v-model="form.message"></textarea>
               </div>
               <div class="text-right">
-                <router-link to="/shop">
-                  <button class="btn btn-outline-primary mr-3">ショッピングを続ける</button>
-                </router-link>
                 <button class="btn btn-warning">注文を確定する</button>
               </div>
             </form>

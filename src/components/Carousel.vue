@@ -75,7 +75,7 @@ export default {
 @import "src/assets/helpers/font.sass"
 
 #carouselExampleIndicators
-    padding-top: 85px
+    padding-top: 80px
 .carousel-item-header
     height: 400px
 +pad

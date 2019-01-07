@@ -6,19 +6,29 @@
       <Carousel/>
       <div class="row mt-4">
         <div class="col-md-3">
+          <!-- 行動版選單 -->
+          <select class="custom-select w-100 d-md-none mb-3" id="inputGroupSelect01" v-model="searchText">
+            <option  value="" selected>すべて</option>
+            <option  
+              v-for="item in categories"
+              :key="item" :value="item">{{item}}</option>
+          </select>
           <!-- 左側選單 -->
-         <div class="list-group sticky">
-           <a href="#" class="list-group-item list-group-item-action"
+          <div class="list-group sticky">
+            <a
+              href="#"
+              class="list-group-item list-group-item-action"
               @click.prevent="searchText = ''"
-              :class="{ 'active': searchText === ''}">
-              すべて
-            </a>
-            <a class="list-group-item list-group-item-action"
-              href="#" @click.prevent="searchText = item"
+              :class="{ 'active': searchText === ''}"
+            >すべて</a>
+            <a
+              class="list-group-item list-group-item-action"
+              href="#"
+              @click.prevent="searchText = item"
               :class="{ 'active': item === searchText}"
-              v-for="item in categories" :key="item">
-              {{ item }}
-            </a>
+              v-for="item in categories"
+              :key="item"
+            >{{ item }}</a>
           </div>
         </div>
         <div class="col-md-9 mb-4">
@@ -26,20 +36,37 @@
             <div class="col-md-4 mb-4" v-for="item in filterData" :key="item.id">
               <div class="card border-0 shadow-sm">
                 <div class="imgWrap text-center">
-                  <img class="productsImg" :src="item.imageUrl" alt style="height:180px" @click.prevent="getProduct(item.id)">
+                  <img
+                    class="productsImg"
+                    :src="item.imageUrl"
+                    alt
+                    style="height:180px"
+                    @click.prevent="getProduct(item.id)"
+                  >
                 </div>
                 <div class="card-body">
                   <span class="badge badge-secondary float-right ml-2">{{item.category}}</span>
                   <h5 class="card-title">
-                    <a href="#" class="text-dark" @click.prevent="getProduct(item.id)">{{item.title}}</a>
+                    <a
+                      href="#"
+                      class="text-dark"
+                      @click.prevent="getProduct(item.id)"
+                    >{{item.title}}</a>
                   </h5>
                   <p class="card-text">価格</p>
-                  <div class="d-flex justify-content-between align-items-baseline ">
+                  <div class="d-flex justify-content-between align-items-baseline">
                     <div class="h5 my-0" v-if="!item.price">{{item.origin_price | currency}}</div>
-                    <div class="h6 my-0" v-if="item.price" style="text-decoration: line-through">{{item.origin_price | currency}}</div>
+                    <div
+                      class="h6 my-0"
+                      v-if="item.price"
+                      style="text-decoration: line-through"
+                    >{{item.origin_price | currency}}</div>
                     <div class="h5 my-0 text-danger" v-if="item.price">{{item.price | currency}}</div>
                   </div>
-                  <small class="d-flex justify-content-end text-danger" v-if="item.price"> OFF: {{item.origin_price - item.price | currency }} ({{ Math.round(((item.origin_price - item.price)/item.origin_price)*100)}}%)</small>
+                  <small
+                    class="d-flex justify-content-end text-danger"
+                    v-if="item.price"
+                  >OFF: {{item.origin_price - item.price | currency }} ({{ Math.round(((item.origin_price - item.price)/item.origin_price)*100)}}%)</small>
                 </div>
                 <div class="card-footer d-flex">
                   <button
@@ -62,7 +89,7 @@
               </div>
             </div>
           </div>
-           <pagination :pageData="pagination" @getPageOut="getProducts" v-if="searchText==''"></pagination>
+          <pagination :pageData="pagination" @getPageOut="getProducts" v-if="searchText==''"></pagination>
         </div>
       </div>
     </div>
@@ -93,10 +120,15 @@
             >
             <div class="d-flex justify-content-between align-items-baseline mt-4">
               <div class="h5" v-if="!product.price">{{product.origin_price | currency}}</div>
-              <div class="h6" v-if="product.price" >参考価格:<span style="text-decoration: line-through"> {{product.origin_price | currency}}</span></div>
-              <div class="h5 text-danger" v-if="product.price">価格: {{product.price　| currency}}</div>
+              <div class="h6" v-if="product.price">参考価格:
+                <span style="text-decoration: line-through">{{product.origin_price | currency}}</span>
+              </div>
+              <div class="h5 text-danger" v-if="product.price">価格: {{product.price | currency}}</div>
             </div>
-             <small class="d-flex justify-content-end text-danger" v-if="product.price"> OFF: {{product.origin_price - product.price | currency}} ({{ Math.round(((product.origin_price - product.price)/product.origin_price)*100)}}%)</small>
+            <small
+              class="d-flex justify-content-end text-danger"
+              v-if="product.price"
+            >OFF: {{product.origin_price - product.price | currency}} ({{ Math.round(((product.origin_price - product.price)/product.origin_price)*100)}}%)</small>
             <select class="custom-select" id="number" v-model="product.num">
               <option selected>数量</option>
               <option :value="num" v-for="num in 10" :key="num">{{num}} {{product.unit}}</option>
@@ -104,7 +136,7 @@
           </div>
           <div class="modal-footer">
             <div class="text-muted text-nowrap mr-3" v-if="product.num>=1">
-              計 
+              計
               <strong>{{product.num*product.price | currency}}</strong>
             </div>
             <button
@@ -113,7 +145,7 @@
               @click="addtoCart(product.id,product.num)"
             >
               <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===product.id"></i>
-              加入購物車
+              カートに入れる
             </button>
           </div>
         </div>
@@ -148,14 +180,14 @@ export default {
         user: {
           name: "",
           email: "",
-          address: "",
+          address: ""
         }
       },
-      searchText: '',
+      searchText: ""
     };
   },
   methods: {
-    ...mapActions("productsModules", ["getProducts","getAllProducts"]),
+    ...mapActions("productsModules", ["getProducts", "getAllProducts"]),
 
     //開啟單一筆商品資料Modal
     getProduct(id) {
@@ -173,7 +205,7 @@ export default {
         vm.product = response.data.product;
       });
     },
-    
+
     //加入購物車
     addtoCart(id, qty = 1) {
       this.$store.dispatch("addtoCart", { id, qty });
@@ -217,8 +249,7 @@ export default {
           console.log("欄位不完整");
         }
       });
-    },
-   
+    }
   },
   created() {
     this.getProducts();
@@ -243,26 +274,37 @@ export default {
     filterData() {
       const vm = this;
       if (vm.searchText) {
-        return vm.allproducts.filter((item) => {
-          const data = item.category.toLowerCase().includes(vm.searchText.toLowerCase());
+        return vm.allproducts.filter(item => {
+          const data = item.category
+            .toLowerCase()
+            .includes(vm.searchText.toLowerCase());
           return data;
         });
       }
       return vm.products;
     },
-    ...mapGetters("productsModules", ["products","allproducts", "categories",'pagination'])
+    ...mapGetters("productsModules", [
+      "products",
+      "allproducts",
+      "categories",
+      "pagination"
+    ])
   }
 };
 </script>
 
 <style lang="sass" scope>
+@import "src/assets/helpers/grid.sass"
+
 .productsImg:hover
   opacity: 0.7
   cursor: pointer
-
 .card-body a
   text-decoration: none
 .card-body:hover
   opacity: 0.7
++iphone6plus-1
+  .list-group
+    display: none
 
 </style>

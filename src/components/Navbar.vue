@@ -19,22 +19,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <!-- <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >店舗情報</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">新宿本店</a>
-              <a class="dropdown-item" href="#">新宿西口文具館</a>
-              <a class="dropdown-item" href="#">池袋パルコ店</a>
-            </div>
-          </li>-->
           <li class="nav-item">
             <router-link to="/home">
               <a class="nav-link" href="#realshop">店舗情報</a>
@@ -53,6 +37,11 @@
           <li class="nav-item">
             <router-link to="/shop">
               <a class="nav-link" href="#">オンラインショップ</a>
+            </router-link>
+          </li>
+          <li class="nav-item d-md-none">
+            <router-link to="/customer_order">
+               <a class="nav-link" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> カートを見る</a>
             </router-link>
           </li>
         </ul>
@@ -97,8 +86,8 @@
           >
             <h6>カートに追加しました</h6>
             <table class="table table-sm" >
-              <tbody >
-                <tr v-for="item in cart.carts" :key="item.id" v-if="cart.carts.length">
+              <tbody v-if="cartlen">
+                <tr v-for="item in cart.carts" :key="item.id" >
                   <td class="align-middle">
                     <button
                       type="button"
@@ -155,6 +144,7 @@ export default {
   }
 };
 </script>
+
 <style lang="sass" scope>
 @import "src/assets/helpers/grid.sass"
 
@@ -168,11 +158,10 @@ h1
   margin: 0px
 .logo
   width: 200px
-  height: 54px
+  // height: 54px
   background-image: url(../assets/img/company-logo.png)
-  background-size: 65%
+  background-size: 90%
   display: block
-  background-position: center center
   text-indent: 101%
   overflow: hidden
   white-space: nowrap
@@ -193,10 +182,7 @@ h1
   .cart
     display: none
 +pad
-  .logo
-    background-position: 1rem center
   .navbar-nav .dropdown-menu
     position: absolute
     width: 100%
-
 </style>
