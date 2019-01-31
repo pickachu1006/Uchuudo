@@ -5,46 +5,22 @@
         <div class="authorInfo">
           <p class="author">
             作者：
-            <span>pickachu1006 Github</span>
+            <a class="text-dark" href="https://github.com/pickachu1006/Uchuudo" target="_blank">pickachu1006 Github</a>
           </p>
-          <p>練習作品 ｜ 資料來源： 世界堂</p>
+          
+          <p>練習作品 ｜ 資料來源： <a href="https://webshop.sekaido.co.jp/" target="_blank" class="text-dark">世界堂</a></p>
         </div>
         <div class="contactInfo d-md-block d-none">
-          <p>問い合わせ：886-972-065-632</p>
+          <p>問い合わせ：886-123-456-789</p>
           <p>（受付時間 09:00～18:00）</p>
         </div>
         <div class="admin mt-2">
-          <router-link to="/login">
-            <a href="#" class="btn btn-outline-light btn-sm">ADMIN</a>
-          </router-link>
+          <select class="custom-select bg-primary text-light" id="inputGroupSelect01" v-model="Lang" @change="setLang">
+            <option selected value="jp">日本語</option>
+            <option value="tw">繁體中文</option>
+          </select>
         </div>
       </div>
-      <!-- <div class="container py-3">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="authorInfo">
-              <p class="author">
-                作者：
-                <span>pickachu1006 Github</span>
-              </p>
-              <p>練習作品 ｜ 資料來源： 世界堂</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-          <div class="contactInfo d-md-block d-none">
-            <p>問い合わせ：886-972-065-632</p>
-            <p>（受付時間 09:00～18:00）</p>
-          </div>
-          </div>
-          <div class="col-md-4">
-          <div class="admin mt-2">
-            <router-link to="/login">
-              <a href="#" class="btn btn-outline-light btn-sm">ADMIN</a>
-            </router-link>
-          </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -52,12 +28,20 @@
 <script>
 import $ from "jquery";
 
+
 export default {
   name: "Footer",
   data() {
-    return {};
+    return {
+      Lang:'jp',
+    };
   },
-  methods: {}
+  methods: {
+    setLang(){
+      // $i18n.locale = this.Lang;
+      console.log(this.Lang )
+    }
+  },
 };
 </script>
 <style lang="sass" scope>
@@ -65,4 +49,6 @@ export default {
 
 p
     margin-bottom: 0.5rem
+.authorInfo a
+  text-decoration: none
 </style>

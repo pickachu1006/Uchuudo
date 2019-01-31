@@ -59,6 +59,24 @@ export default new Router({
       name: 'CustomerCheckout',
       component: () => import('./views/CustomerCheckout.vue')
     },
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      // savedPosition is only available for popstate navigations.
+      return savedPosition
+    } else if(to.hash){
+      const position = {}
+      position.selector = to.hash
+        if (document.querySelector(to.hash)) {
+          position.offset = { y: 100 }
+          return position
+        }
+        // if the returned position is falsy or an empty object,
+        // will retain current scroll position.
+        return false
+    }else{
+      return { x: 0, y: 0 }
+    }
+  }
 })
 

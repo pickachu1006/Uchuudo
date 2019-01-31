@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios';
 import $ from 'jquery'
 
+
 import productsModules from './products.js'
 
 Vue.use(Vuex)
@@ -16,7 +17,7 @@ export default new Vuex.Store({
     status:{
       loadingItem: '', //控制loading icon
     },
-
+    
   },
   mutations: {
     LOADING(state, status) {
@@ -29,6 +30,8 @@ export default new Vuex.Store({
       state.cart = payload;
       state.cartlen = payload.carts.length
     },
+
+    
   },
   actions: {
     iconLoading(context,status){
@@ -69,11 +72,10 @@ export default new Vuex.Store({
           context.commit('LOADING',false);
         })
     },
+    
   },
   getters: {
-    // isLoading: state => state.isLoading,
-    cart: state => state.cart,
-    
+    cart: state => state.cart,  
   },
   modules: {
     productsModules,

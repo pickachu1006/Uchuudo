@@ -5,9 +5,9 @@
       <form class="col-md-6" @submit.prevent="payOrder">
         <table class="table">
           <thead>
-            <th>品名</th>
-            <th>數量</th>
-            <th>單價</th>
+            <th>品物</th>
+            <th>数量</th>
+            <th>価格</th>
           </thead>
           <tbody>
             <tr v-for="item in order.products" :key="item.id">
@@ -18,7 +18,7 @@
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="2" class="text-right">總計</td>
+              <td colspan="2" class="text-right">小計</td>
               <td class="text-right">{{ order.total }}</td>
             </tr>
           </tfoot>
@@ -31,22 +31,22 @@
               <td>{{ order.user.email }}</td>
             </tr>
             <tr>
-              <th>姓名</th>
+              <th>氏名</th>
               <td>{{ order.user.name }}</td>
             </tr>
             <tr>
-              <th>收件人電話</th>
+              <th>電話番号</th>
               <td>{{ order.user.tel }}</td>
             </tr>
             <tr>
-              <th>收件人地址</th>
+              <th>住所</th>
               <td>{{ order.user.address }}</td>
             </tr>
             <tr>
-              <th>付款狀態</th>
+              <th>決済結果</th>
               <td>
-                <span v-if="!order.is_paid">尚未付款</span>
-                <span v-else class="text-success">付款完成</span>
+                <span v-if="!order.is_paid">未決済</span>
+                <span v-else class="text-success">決済済み</span>
               </td>
             </tr>
           </tbody>
@@ -54,9 +54,9 @@
 
         <div class="text-right">
           <router-link to="/shop">
-            <button class="btn btn-outline-primary mr-3">繼續購物</button>
+            <button class="btn btn-outline-primary mr-3">ショッピングを続ける</button>
           </router-link>
-          <button class="btn btn-danger" v-if="order.is_paid === false">確認付款去</button>
+          <button class="btn btn-danger" v-if="order.is_paid === false">支払いへ進む</button>
         </div>
       </form>
     </div>

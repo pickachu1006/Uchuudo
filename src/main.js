@@ -13,15 +13,25 @@ import VeeValidate from 'vee-validate';
 // import zhTWValidate from 'vee-validate/dist/locale/zh_TW'
 import jaValidate from 'vee-validate/dist/locale/ja'
 import store from './store/store'
+import VueI18n from 'vue-i18n';
 
-Vue.use(VueAxios,axios)
+Vue.use(VueAxios,axios);
 Vue.use(VeeValidate);
-VeeValidate.Validator.localize('ja',jaValidate)
-Vue.config.productionTip = false
+Vue.use( VueI18n );
+VeeValidate.Validator.localize('ja',jaValidate);
+Vue.config.productionTip = false;
 Vue.component('Loading',Loading)
-Vue.filter('currency',currencyFilter)
+Vue.filter('currency',currencyFilter);
 
 axios.defaults.withCredentials = true;
+
+// i18n
+import jp from './i18n/jp.json'; // 存放英文翻譯
+import tw from './i18n/tw.json'; // 存放繁體中文翻譯
+const locales = {
+  jp: jp,
+  tw: tw,
+};
 
 Vue.config.productionTip = false
 

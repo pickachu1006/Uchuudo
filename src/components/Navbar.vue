@@ -20,17 +20,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link to="/home">
+            <router-link to="/home#realshop">
               <a class="nav-link" href="#realshop">店舗情報</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/home">
-              <a class="nav-link" href="src/views/Home.vue/#newsArea">お知らせ</a>
+            <router-link to="/home#newsArea">
+              <a class="nav-link" href="#newsArea">お知らせ</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/home">
+            <router-link to="/home#aboutAs">
               <a class="nav-link" href="#aboutAs">企業情報</a>
             </router-link>
           </li>
@@ -41,12 +41,26 @@
           </li>
           <li class="nav-item d-md-none">
             <router-link to="/customer_order">
-               <a class="nav-link" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> カートを見る</a>
+              <a class="nav-link" href="#">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i> カートを見る
+              </a>
             </router-link>
           </li>
         </ul>
         <!-- 使用者 -->
-        <div class="dropdown">
+        <router-link to="/login">
+          <button
+            class="btn btn-primary user"
+            type="button"
+            id="UserDropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fas fa-user text-white fa-2x" aria-hidden="true"></i>
+          </button>
+        </router-link>
+        <!-- <div class="dropdown">
           <button
             class="btn btn-primary user"
             type="button"
@@ -58,10 +72,12 @@
             <i class="fas fa-user text-white fa-2x" aria-hidden="true"></i>
           </button>
           <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="UserDropdown">
-            <a class="dropdown-item" href="#">ログイン</a>
+            <router-link to="/login">
+              <a href="#" class="dropdown-item">ログイン</a>
+            </router-link>
             <a class="dropdown-item" href="#">新規会員登録</a>
           </div>
-        </div>
+        </div> -->
 
         <!-- 購物車下拉選單 -->
         <div class="dropdown">
@@ -82,12 +98,11 @@
             aria-labelledby="CartDropdown"
             style="min-width: 500px;overflow:scroll;height:400px;"
             data-offset="400"
-          
           >
             <h6>カートに追加しました</h6>
-            <table class="table table-sm" >
+            <table class="table table-sm">
               <tbody v-if="cartlen">
-                <tr v-for="item in cart.carts" :key="item.id" >
+                <tr v-for="item in cart.carts" :key="item.id">
                   <td class="align-middle">
                     <button
                       type="button"

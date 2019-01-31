@@ -129,20 +129,20 @@
               class="d-flex justify-content-end text-danger"
               v-if="product.price"
             >OFF: {{product.origin_price - product.price | currency}} ({{ Math.round(((product.origin_price - product.price)/product.origin_price)*100)}}%)</small>
-            <select class="custom-select" id="number" v-model="product.num">
-              <option selected>数量</option>
-              <option :value="num" v-for="num in 10" :key="num">{{num}} {{product.unit}}</option>
+            <select class="custom-select" id="number"  v-model="counts">
+              <option selected value=0>数量</option>
+              <option :value="number" v-for="number in 10" :key="number">{{number}} {{product.unit}}</option>
             </select>
           </div>
           <div class="modal-footer">
-            <div class="text-muted text-nowrap mr-3" v-if="product.num>=1">
+            <div class="text-muted text-nowrap mr-3"  v-if="counts>=1">
               計
-              <strong>{{product.num*product.price | currency}}</strong>
+              <strong>{{counts*product.price | currency}}</strong>
             </div>
             <button
               type="button"
               class="btn btn-primary ml-4"
-              @click="addtoCart(product.id,product.num)"
+              @click="addtoCart(product.id,counts)"
             >
               <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===product.id"></i>
               カートに入れる
@@ -176,6 +176,7 @@ export default {
     return {
       coupon_code: "",
       product: {}, //單一筆資料
+      counts:0,
       form: {
         user: {
           name: "",
@@ -208,6 +209,10 @@ export default {
 
     //加入購物車
     addtoCart(id, qty = 1) {
+      if(this.counts<1){
+        alert("数量を選んでください")
+        return
+      }
       this.$store.dispatch("addtoCart", { id, qty });
     },
     getCart() {
