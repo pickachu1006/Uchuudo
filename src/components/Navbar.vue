@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-      <router-link class="nav-link" to="/home">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary py-0">
+      <router-link class="nav-link logo-router" to="/home">
         <h1>
           <a class="logo" href="#">宇宙堂</a>
         </h1>
@@ -20,23 +20,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link to="/home#realshop">
-              <a class="nav-link" href="#realshop">店舗情報</a>
+            <router-link to="/home#realshop" class="nav-link" active-class="routeract">
+              <a class="menutext" href="#realshop">店舗情報</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/home#newsArea">
-              <a class="nav-link" href="#newsArea">お知らせ</a>
+            <router-link to="/home#newsArea" class="nav-link" active-class="routeract">
+              <a class="menutext" href="#newsArea">お知らせ</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/home#aboutAs">
-              <a class="nav-link" href="#aboutAs">企業情報</a>
+            <router-link to="/home#aboutAs" class="nav-link" active-class="routeract">
+              <a class="menutext" href="#aboutAs">企業情報</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/shop">
-              <a class="nav-link" href="#">オンラインショップ</a>
+            <router-link to="/shop" class="nav-link" active-class="routeract">
+              <a class="menutext" href="#">オンラインショップ</a>
             </router-link>
           </li>
           <li class="nav-item d-md-none">
@@ -77,8 +77,7 @@
             </router-link>
             <a class="dropdown-item" href="#">新規会員登録</a>
           </div>
-        </div> -->
-
+        </div>-->
         <!-- 購物車下拉選單 -->
         <div class="dropdown">
           <button
@@ -167,6 +166,7 @@ export default {
     position: fixed
     z-index: 100
     width: 100%
+    
 .navbar a
   text-decoration: none
 h1
@@ -181,10 +181,22 @@ h1
   overflow: hidden
   white-space: nowrap
   background-repeat: no-repeat
+.logo-router
+  padding: 16px 1rem
 .navbar-nav .nav-item .nav-link
   color: white
   font-size: 1rem
-  padding: 1rem
+  padding: 28px 1.5rem
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus
+  background-color: #F49889
+.menutext
+  color: white
+.menutext:hover , .menutext:focus
+  background-color: #F49889
+  color: white
+.routeract
+  background-color: #F49889
+  color: white
 .cart
   position: relative
 .btn .badge
@@ -192,6 +204,11 @@ h1
   right: 0.5rem
   top: -0.1rem
 +iphone6plus-1
+  .navbar
+    padding-left: 0px
+    padding-right: 0px
+  .navbar-toggler
+    margin-right: 1rem
   .user
     display: none 
   .cart

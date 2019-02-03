@@ -80,7 +80,7 @@
                   <button
                     type="button"
                     class="btn btn-outline-danger btn-sm ml-auto"
-                    @click="addtoCart(item.id)"
+                    @click="addtoCart(item.id,counts=1)"
                   >
                     <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===item.id"></i>
                     カートに入れる
@@ -214,6 +214,7 @@ export default {
         return
       }
       this.$store.dispatch("addtoCart", { id, qty });
+      this.counts=0
     },
     getCart() {
       this.$store.dispatch("getCart");
