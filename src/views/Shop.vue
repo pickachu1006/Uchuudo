@@ -7,11 +7,13 @@
       <div class="row mt-4">
         <div class="col-md-3">
           <!-- 行動版選單 -->
-          <select class="custom-select w-100 d-md-none mb-3" id="inputGroupSelect01" v-model="searchText">
-            <option  value="" selected>すべて</option>
-            <option  
-              v-for="item in categories"
-              :key="item" :value="item">{{item}}</option>
+          <select
+            class="custom-select w-100 d-md-none mb-3"
+            id="inputGroupSelect01"
+            v-model="searchText"
+          >
+            <option value selected>すべて</option>
+            <option v-for="item in categories" :key="item" :value="item">{{item}}</option>
           </select>
           <!-- 左側選單 -->
           <div class="list-group sticky">
@@ -120,7 +122,8 @@
             >
             <div class="d-flex justify-content-between align-items-baseline mt-4">
               <div class="h5" v-if="!product.price">{{product.origin_price | currency}}</div>
-              <div class="h6" v-if="product.price">参考価格:
+              <div class="h6" v-if="product.price">
+                参考価格:
                 <span style="text-decoration: line-through">{{product.origin_price | currency}}</span>
               </div>
               <div class="h5 text-danger" v-if="product.price">価格: {{product.price | currency}}</div>
@@ -129,13 +132,13 @@
               class="d-flex justify-content-end text-danger"
               v-if="product.price"
             >OFF: {{product.origin_price - product.price | currency}} ({{ Math.round(((product.origin_price - product.price)/product.origin_price)*100)}}%)</small>
-            <select class="custom-select" id="number"  v-model="counts">
-              <option selected value=0>数量</option>
+            <select class="custom-select" id="number" v-model="counts">
+              <option selected value="0">数量</option>
               <option :value="number" v-for="number in 10" :key="number">{{number}} {{product.unit}}</option>
             </select>
           </div>
           <div class="modal-footer">
-            <div class="text-muted text-nowrap mr-3"  v-if="counts>=1">
+            <div class="text-muted text-nowrap mr-3" v-if="counts>=1">
               計
               <strong>{{counts*product.price | currency}}</strong>
             </div>
@@ -176,7 +179,7 @@ export default {
     return {
       coupon_code: "",
       product: {}, //單一筆資料
-      counts:0,
+      counts: 0,
       form: {
         user: {
           name: "",
@@ -208,16 +211,14 @@ export default {
     },
 
     //加入購物車
+    ...mapActions(["getCart"]),
     addtoCart(id, qty = 1) {
-      if(this.counts<1){
-        alert("数量を選んでください")
-        return
+      if (this.counts < 1) {
+        alert("数量を選んでください");
+        return;
       }
       this.$store.dispatch("addtoCart", { id, qty });
-      this.counts=0
-    },
-    getCart() {
-      this.$store.dispatch("getCart");
+      this.counts = 0;
     },
     removeCartItem(id) {
       this.$store.dispatch("removeCartItem", id);
@@ -259,10 +260,8 @@ export default {
   },
   created() {
     this.getProducts();
-    //   this.$store.productsModules.dispatch('getProducts');
     this.getAllProducts();
     this.getCart();
-    //   this.$store.dispatch('getCart');
   },
   computed: {
     isLoading() {

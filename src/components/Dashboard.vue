@@ -14,18 +14,12 @@
 </template>
 <script>
     import Sidebar from './Sidebar'
-    // import Navbar from './Navbar'
-    // import Carousel from './Carousel'
     import Alert from './AlertMessage'
-    // import pagination from './Pagination'
 
     export default{
         components:{
             Sidebar,
-            // Navbar,
             Alert,
-            // Carousel
-            // pagination
         }
     }
 </script>

@@ -80,7 +80,6 @@ export default {
       const url = `${process.env.VUE_APP_APIPATH}/api/${
         process.env.VUE_APP_CUSTOMPATH
       }/order/${vm.orderId}`;
-      // https://vue-course-api.hexschool.io/api/pika/order/-LRzpiO9jOaF7zx7M7a8
       console.log(url);
       vm.isLoading = true;
       this.$http.get(url).then(response => {

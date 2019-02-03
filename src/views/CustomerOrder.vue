@@ -139,7 +139,7 @@
 </template>
 <script>
 import $ from "jquery";
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   components: {},
@@ -156,9 +156,7 @@ export default {
     };
   },
   methods: {
-    getCart() {
-      this.$store.dispatch("getCart");
-    },
+    ...mapActions(["getCart"]),
     removeCartItem(id) {
       this.$store.dispatch("removeCartItem", id);
     },
@@ -170,11 +168,9 @@ export default {
       const coupon = {
         code: vm.coupon_code
       };
-      //   vm.isLoading=true;
       this.$http.post(url, { data: coupon }).then(response => {
         console.log(response);
         vm.getCart();
-        // vm.isLoading=false;
       });
     },
     creatOrder() {
@@ -199,7 +195,6 @@ export default {
   },
   created() {
     this.getCart();
-    //   this.$store.dispatch('getCart');
   },
   computed: {
     isLoading() {

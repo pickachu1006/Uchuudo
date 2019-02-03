@@ -1,12 +1,27 @@
 <template>
-  <div >
-     <form class="form-signin" @submit.prevent="signin">
+  <div>
+    <form class="form-signin" @submit.prevent="signin">
       <!-- <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
       <h1 class="h3 mb-3 font-weight-normal text-center">請登入</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" v-model="user.username" placeholder="Email address" required autofocus>
+      <input
+        type="email"
+        id="inputEmail"
+        class="form-control"
+        v-model="user.username"
+        placeholder="Email address"
+        required
+        autofocus
+      >
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" v-model="user.password" placeholder="Password" required>
+      <input
+        type="password"
+        id="inputPassword"
+        class="form-control"
+        v-model="user.password"
+        placeholder="Password"
+        required
+      >
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
@@ -20,35 +35,32 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      user:{
-          username:'',
-          password:''
+      user: {
+        username: "",
+        password: ""
       }
+    };
+  },
+  methods: {
+    signin() {
+      const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
+      const vm = this;
+      this.$http.post(api, vm.user).then(response => {
+        console.log(response);
+        if (response.data.success) {
+          vm.$router.push("/admin/products");
+        }
+      });
     }
   },
-  methods:{
-      signin(){
-          const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
-          const vm = this;
-          this.$http.post(api,vm.user).then((response)=>{
-             console.log(response)
-              if(response.data.success){
-                  vm.$router.push('/admin/products');
-              }
-          })
-      }
-  },
-  created(){
-    console.log(`${process.env.VUE_APP_APIPATH}/admin/signin`)
-  }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    html,
+html,
 body {
   height: 100%;
 }
@@ -92,5 +104,4 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
 </style>

@@ -131,6 +131,7 @@
 
 <script>
 import $ from "jquery";
+import { mapActions } from "vuex";
 
 export default {
   name: "Navbar",
@@ -138,12 +139,13 @@ export default {
     return {};
   },
   methods: {
+    ...mapActions(["getCart"]),
     removeCartItem(id) {
       this.$store.dispatch("removeCartItem", id);
     }
   },
-  created() {
-    this.$store.dispatch("getCart");
+  created(){
+    this.getCart();
   },
   computed: {
     isLoading() {
