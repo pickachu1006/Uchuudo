@@ -1,17 +1,17 @@
 {
-    "Home":{
+    "Home": {
         "fullshop": "全店適用",
         "text1": "第15屆世界繪畫大賽日程公布！！",
         "text2": "紙膠帶福袋塞到滿活動開始",
         "text3": "「2018年 冬季漫畫大展」 舉辦中！！",
         "seemore": "查看更多",
         "about-text1": "宇宙堂於平成31年",
-        "about-text2":"創立於東京・新宿。",
-        "about-text3":"查看公司介紹",
+        "about-text2": "創立於東京・新宿。",
+        "about-text3": "查看公司介紹",
         "gotolook": "，購物趣"
-      },
-    "Shop":{
-        "price":"價格",
+    },
+    "Shop": {
+        "price": "價格",
         "seeproduct": "詳細資訊",
         "addtocart": "加入購物車",
         "nosaleprice": "建議售價",
@@ -20,29 +20,56 @@
         "total": "總計"
     },
     "CustomerOrder": {
-
+        "cart": "購物車",
+        "products": "內容",
+        "price": "價格",
+        "coupon": "已使用折價券",
+        "finalprice": "折扣價格",
+        "inputcode": "請輸入折扣碼",
+        "usecoupon": "使用折價券",
+        "continueshopping": "繼續購物",
+        "receiver": "收件人",
+        "emailplaceholder": "請輸入Email",
+        "name": "姓名",
+        "nameplaceholder": "請輸入姓名",
+        "pleaseentername": "姓名為必填項目",
+        "phone": "聯絡電話",
+        "phoneplaceholder": "請輸入聯絡電話",
+        "pleaseenterphone": "聯絡電話為必填項目",
+        "address": "地址",
+        "addressplaceholder": "請輸入地址",
+        "pleaseenteraddress": "地址為必填項目",
+        "message": "備註",
+        "confirm": "確認訂購"
     },
     "CustomerCheckout": {
-
+        "orderlist": "訂購內容",
+        "paystatus": "付款狀態",
+        "nopay": "未付款",
+        "paid": "已付款",
+        "gotopay": "前往付款"
     },
-    "Navbar":{
+    "Navbar": {
         "realshop": "實體店鋪",
         "newsArea": "最新消息",
         "aboutAs": "關於我們",
         "onlineshop": "線上商店",
         "seecart": "查看購物車",
         "addtocart": "購物車"
-      },
-    "Footer":{
+    },
+    "Footer": {
         "ask": "客服專線",
         "asktime": "服務時間"
     },
-    "Carousel":{
+    "Carousel": {
         "title1": "Mepxy Marker套組限時特賣",
         "detail1": "活動期間，Mepxy Marker套組買到賺到！",
-        "title2":"LED超薄型透寫台　ARTON SMART TRACER PRO好評販售中",
-        "detail2":"不同凡響，品質提升！使用日亞化學工業LED晶片",
-        "title3":"最推薦!　應有盡有繪畫套組。「初學者油畫入門套組」",
-        "detail3":"快速進入油畫世界的繪畫套組。"
+        "title2": "LED超薄型透寫台　ARTON SMART TRACER PRO好評販售中",
+        "detail2": "不同凡響，品質提升！使用日亞化學工業LED晶片",
+        "title3": "最推薦!　應有盡有繪畫套組。「初學者油畫入門套組」",
+        "detail3": "快速進入油畫世界的繪畫套組。"
+    },
+    "Login":{
+        "pleaselogin": "請登入"
       }
 }

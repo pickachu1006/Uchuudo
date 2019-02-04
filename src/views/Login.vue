@@ -1,8 +1,7 @@
 <template>
   <div>
     <form class="form-signin" @submit.prevent="signin">
-      <!-- <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-      <h1 class="h3 mb-3 font-weight-normal text-center">請登入</h1>
+      <h1 class="h3 mb-3 font-weight-normal text-center">{{$t("Login.pleaselogin")}}</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input
         type="email"
@@ -57,8 +56,6 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 html,
 body {

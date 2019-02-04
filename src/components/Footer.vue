@@ -44,14 +44,13 @@ export default {
   name: "Footer",
   data() {
     return {
-      Lang:'jp'
+      Lang: this.$store.state.Lang,
     };
   },
   methods: {
-    setLang(Lang) {
-      const vm = this;
-      app.$i18n.locale = vm.Lang
-    }
+   setLang(Lang) {
+      this.$store.dispatch("setLang", Lang);
+    },
   },
 };
 </script>

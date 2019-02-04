@@ -73,13 +73,13 @@
                   v-validate="'required|email'"
                   :class="{'is-invalid': errors.has('email')}"
                   v-model="form.user.email"
-                  placeholder="Emailを入力してください"
+                  :placeholder="$t('CustomerOrder.emailplaceholder')"
                 >
                 <span class="text-danger" v-if="errors.has('email')">{{errors.first('email')}}</span>
               </div>
 
               <div class="form-group">
-                <label for="username">氏名</label>
+                <label for="username">{{$t("CustomerOrder.name")}}</label>
                 <input
                   type="text"
                   class="form-control"
@@ -88,13 +88,13 @@
                   :class="{'is-invalid': errors.has('name')}"
                   v-model="form.user.name"
                   v-validate="'required'"
-                  placeholder="氏名を入力してください"
+                  :placeholder="$t('CustomerOrder.nameplaceholder')"
                 >
-                <span class="text-danger" v-if="errors.has('name')">氏名は必須項目です</span>
+                <span class="text-danger" v-if="errors.has('name')">{{$t("CustomerOrder.pleaseentername")}}</span>
               </div>
 
               <div class="form-group">
-                <label for="usertel">電話番号</label>
+                <label for="usertel">{{$t("CustomerOrder.phone")}}</label>
                 <input
                   type="tel"
                   class="form-control"
@@ -103,13 +103,13 @@
                   :class="{'is-invalid': errors.has('usertel')}"
                   v-validate="'required'"
                   v-model="form.user.tel"
-                  placeholder="電話番号を入力してください"
+                  :placeholder="$t('CustomerOrder.phoneplaceholder')"
                 >
-                <span class="text-danger" v-if="errors.has('usertel')">電話番号は必須項目です</span>
+                <span class="text-danger" v-if="errors.has('usertel')">{{$t("CustomerOrder.pleaseenterphone")}}</span>
               </div>
 
               <div class="form-group">
-                <label for="useraddress">住所</label>
+                <label for="useraddress">{{$t("CustomerOrder.address")}}</label>
                 <input
                   type="address"
                   class="form-control"
@@ -118,17 +118,17 @@
                   :class="{'is-invalid': errors.has('address')}"
                   v-validate="'required'"
                   v-model="form.user.address"
-                  placeholder="住所を入力してください"
+                  :placeholder="$t('CustomerOrder.addressplaceholder')"
                 >
-                <span class="text-danger" v-if="errors.has('address')">住所は必須項目です</span>
+                <span class="text-danger" v-if="errors.has('address')">{{$t("CustomerOrder.pleaseenteraddress")}}</span>
               </div>
 
               <div class="form-group">
-                <label for="useraddress">メッセージ</label>
+                <label for="useraddress">{{$t("CustomerOrder.message")}}</label>
                 <textarea name id class="form-control" cols="30" rows="5" v-model="form.message"></textarea>
               </div>
               <div class="text-right">
-                <button class="btn btn-warning">注文を確定する</button>
+                <button class="btn btn-warning">{{$t("CustomerOrder.confirm")}}</button>
               </div>
             </form>
           </div>

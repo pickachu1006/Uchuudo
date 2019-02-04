@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios';
 import $ from 'jquery'
+import {app} from '@/main.js'
 
 import productsModules from './products.js'
 
@@ -10,6 +11,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   strict: true,
   state: {
+    Lang:'jp',
     cart: {},
     cartlen: 0,
     isLoading: false, //控制全畫面loading效果
@@ -29,6 +31,10 @@ export default new Vuex.Store({
       state.cart = payload;
       state.cartlen = payload.carts.length
     },
+    SET_LANG(state, payload){
+      state.Lang = payload;
+      app.$i18n.locale = state.Lang
+    }
   },
   actions: {
     iconLoading(context, status) {
@@ -69,6 +75,9 @@ export default new Vuex.Store({
         context.commit('LOADING', false);
       })
     },
+    setLang(context,Lang){
+      context.commit('SET_LANG', Lang)
+    }
   },
   getters: {
     cart: state => state.cart,
