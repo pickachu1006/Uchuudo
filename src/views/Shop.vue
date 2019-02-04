@@ -55,7 +55,7 @@
                       @click.prevent="getProduct(item.id)"
                     >{{item.title}}</a>
                   </h5>
-                  <p class="card-text">価格</p>
+                  <p class="card-text">{{$t("Shop.price")}}</p>
                   <div class="d-flex justify-content-between align-items-baseline">
                     <div class="h5 my-0" v-if="!item.price">{{item.origin_price | currency}}</div>
                     <div
@@ -77,7 +77,7 @@
                     @click.prevent="getProduct(item.id)"
                   >
                     <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===item.id"></i>
-                    商品を見る
+                    {{$t("Shop.seeproduct")}}
                   </button>
                   <button
                     type="button"
@@ -85,7 +85,7 @@
                     @click="addtoCart(item.id,counts=1)"
                   >
                     <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===item.id"></i>
-                    カートに入れる
+                    {{$t("Shop.addtocart")}}
                   </button>
                 </div>
               </div>
@@ -123,23 +123,23 @@
             <div class="d-flex justify-content-between align-items-baseline mt-4">
               <div class="h5" v-if="!product.price">{{product.origin_price | currency}}</div>
               <div class="h6" v-if="product.price">
-                参考価格:
+                {{$t("Shop.nosaleprice")}}:
                 <span style="text-decoration: line-through">{{product.origin_price | currency}}</span>
               </div>
-              <div class="h5 text-danger" v-if="product.price">価格: {{product.price | currency}}</div>
+              <div class="h5 text-danger" v-if="product.price">{{$t("Shop.saleprice")}}: {{product.price | currency}}</div>
             </div>
             <small
               class="d-flex justify-content-end text-danger"
               v-if="product.price"
             >OFF: {{product.origin_price - product.price | currency}} ({{ Math.round(((product.origin_price - product.price)/product.origin_price)*100)}}%)</small>
             <select class="custom-select" id="number" v-model="counts">
-              <option selected value="0">数量</option>
+              <option selected value="0">{{$t("Shop.number")}}</option>
               <option :value="number" v-for="number in 10" :key="number">{{number}} {{product.unit}}</option>
             </select>
           </div>
           <div class="modal-footer">
             <div class="text-muted text-nowrap mr-3" v-if="counts>=1">
-              計
+              {{$t("Shop.total")}}
               <strong>{{counts*product.price | currency}}</strong>
             </div>
             <button
@@ -148,7 +148,7 @@
               @click="addtoCart(product.id,counts)"
             >
               <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===product.id"></i>
-              カートに入れる
+              {{$t("Shop.addtocart")}}
             </button>
           </div>
         </div>

@@ -29,8 +29,6 @@ export default new Vuex.Store({
       state.cart = payload;
       state.cartlen = payload.carts.length
     },
-
-
   },
   actions: {
     iconLoading(context, status) {
@@ -71,7 +69,6 @@ export default new Vuex.Store({
         context.commit('LOADING', false);
       })
     },
-
   },
   getters: {
     cart: state => state.cart,

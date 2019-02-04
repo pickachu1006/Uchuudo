@@ -10,24 +10,24 @@
             <div class="carousel-item active carousel-item-header ">
             <img class="productImg d-block w-100" src="../assets/img/carousel-1.jpg" alt="First slide">
                 <div class="textbox carousel-caption d-none d-md-block">
-                    <div class="title">メクシーマーカーセット期間限定セールのご案内</div>
-                    <div class="detail">期間中、メクシ―マーカーの対象セットがお買得！</div>
+                    <div class="title">{{$t("Carousel.title1")}}</div>
+                    <div class="detail">{{$t("Carousel.detail1")}}</div>
                     <div class="date">2018/11/28</div>
                 </div>
             </div>
             <div class="carousel-item carousel-item-header " >
             <img class="d-block w-100" src="../assets/img/carousel-2.jpg" alt="Second slide">
                 <div class="textbox carousel-caption d-none d-md-block">
-                    <div class="title">LED超薄型トレース台　アートンスマートトレーサーＰＲＯ好評発売中</div>
-                    <div class="detail">従来品からグレードアップ！日亜化学工業製ＬＥＤチップを搭載</div>
+                    <div class="title">{{$t("Carousel.title2")}}</div>
+                    <div class="detail">{{$t("Carousel.detail2")}}</div>
                     <div class="date">2018/10/16</div>
                 </div>
             </div>
             <div class="carousel-item carousel-item-header" >
             <img class="d-block w-100" src="../assets/img/carousel-3.jpg" alt="Third slide">
                 <div class="textbox carousel-caption d-none d-md-block">
-                    <div class="title">イチ押し!　すべて揃った画材セット。「初めての油絵スターターセット」</div>
-                    <div class="detail">油絵がすぐに始められる画材セットです。</div>
+                    <div class="title">{{$t("Carousel.title3")}}</div>
+                    <div class="detail">{{$t("Carousel.detail3")}}</div>
                     <div class="date">2018/08/17</div>
                 </div>
             </div>

@@ -21,28 +21,28 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <router-link to="/home#realshop" class="nav-link" active-class="routeract">
-              <a class="menutext" href="#realshop">店舗情報</a>
+              <a class="menutext" href="#realshop">{{ $t("Navbar.realshop") }}</a>
             </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/home#newsArea" class="nav-link" active-class="routeract">
-              <a class="menutext" href="#newsArea">お知らせ</a>
+              <a class="menutext" href="#newsArea">{{ $t("Navbar.newsArea") }}</a>
             </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/home#aboutAs" class="nav-link" active-class="routeract">
-              <a class="menutext" href="#aboutAs">企業情報</a>
+              <a class="menutext" href="#aboutAs">{{ $t("Navbar.aboutAs") }}</a>
             </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/shop" class="nav-link" active-class="routeract">
-              <a class="menutext" href="#">オンラインショップ</a>
+              <a class="menutext" href="#">{{ $t("Navbar.onlineshop") }}</a>
             </router-link>
           </li>
           <li class="nav-item d-md-none">
             <router-link to="/customer_order">
               <a class="nav-link" href="#">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i> カートを見る
+                <i class="fa fa-cart-plus" aria-hidden="true"></i> {{ $t("Navbar.seecart") }}
               </a>
             </router-link>
           </li>
@@ -98,7 +98,7 @@
             style="min-width: 500px;overflow:scroll;height:400px;"
             data-offset="400"
           >
-            <h6>カートに追加しました</h6>
+            <h6>{{ $t("Navbar.addtocart") }}</h6>
             <table class="table table-sm">
               <tbody v-if="cartlen">
                 <tr v-for="item in cart.carts" :key="item.id">
@@ -119,7 +119,7 @@
             </table>
             <router-link to="/customer_order">
               <button class="btn btn-warning btn-block">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i> カートを見る
+                <i class="fa fa-cart-plus" aria-hidden="true"></i> {{ $t("Navbar.seecart") }}
               </button>
             </router-link>
           </div>

@@ -4,13 +4,13 @@
       <div class="row">
         <!-- 購物清單 -->
         <div class="col-md-6">
-          <h3>ショッピングカート</h3>
+          <h3>{{$t("CustomerOrder.cart")}}</h3>
           <table class="table" v-if="cartlen!==0">
             <thead>
               <th></th>
-              <th>品物</th>
-              <th>数量</th>
-              <th>価格</th>
+              <th>{{$t("CustomerOrder.products")}}</th>
+              <th width=60>{{$t("Shop.number")}}</th>
+              <th>{{$t("CustomerOrder.price")}}</th>
             </thead>
             <tbody>
               <tr v-for="item in cart.carts" :key="item.id">
@@ -25,7 +25,7 @@
                 </td>
                 <td class="align-middle">
                   {{ item.product.title }}
-                  <div class="text-success" v-if="item.coupon">クーポン適用濟</div>
+                  <div class="text-success" v-if="item.coupon">{{$t("CustomerOrder.coupon")}}</div>
                 </td>
                 <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
                 <td class="align-middle text-right">{{ Math.round(item.final_total) | currency }}</td>
@@ -37,24 +37,24 @@
                 <td class="text-right">{{ Math.round(cart.total) | currency }}</td>
               </tr>
               <tr v-if="cart.final_total!==cart.total">
-                <td colspan="3" class="text-right text-success">割引価格</td>
+                <td colspan="3" class="text-right text-success">{{$t("CustomerOrder.finalprice")}}</td>
                 <td class="text-right text-success">{{ Math.round(cart.final_total) | currency }}</td>
               </tr>
             </tfoot>
           </table>
           <div class="input-group mb-3 input-group-sm" v-if="cartlen!==0">
-            <input type="text" class="form-control" placeholder="コードを入力" v-model="coupon_code">
+            <input type="text" class="form-control"  v-model="coupon_code" :placeholder="$t('CustomerOrder.inputcode')">
             <div class="input-group-append">
               <button
                 class="btn btn-outline-secondary"
                 type="button"
                 @click.prevent="addCouponCode"
-              >クーポン適用</button>
+              >{{$t("CustomerOrder.usecoupon")}}</button>
             </div>
           </div>
           <div class="text-right">
           <router-link  to="/shop">
-            <button class="btn btn-outline-primary">ショッピングを続ける</button>
+            <button class="btn btn-outline-primary">{{$t("CustomerOrder.continueshopping")}}</button>
           </router-link>
           </div>
         </div>
@@ -62,7 +62,7 @@
         <div class="col-md-6">
           <div class="row justify-content-center">
             <form class="col-md-10" @submit.prevent="creatOrder">
-              <h3>配送先</h3>
+              <h3>{{$t("CustomerOrder.receiver")}}</h3>
               <div class="form-group">
                 <label for="useremail">Email</label>
                 <input

@@ -1,0 +1,48 @@
+{
+    "Home":{
+        "fullshop": "全店適用",
+        "text1": "第15屆世界繪畫大賽日程公布！！",
+        "text2": "紙膠帶福袋塞到滿活動開始",
+        "text3": "「2018年 冬季漫畫大展」 舉辦中！！",
+        "seemore": "查看更多",
+        "about-text1": "宇宙堂於平成31年",
+        "about-text2":"創立於東京・新宿。",
+        "about-text3":"查看公司介紹",
+        "gotolook": "，購物趣"
+      },
+    "Shop":{
+        "price":"價格",
+        "seeproduct": "詳細資訊",
+        "addtocart": "加入購物車",
+        "nosaleprice": "建議售價",
+        "saleprice": "特價",
+        "number": "數量",
+        "total": "總計"
+    },
+    "CustomerOrder": {
+
+    },
+    "CustomerCheckout": {
+
+    },
+    "Navbar":{
+        "realshop": "實體店鋪",
+        "newsArea": "最新消息",
+        "aboutAs": "關於我們",
+        "onlineshop": "線上商店",
+        "seecart": "查看購物車",
+        "addtocart": "購物車"
+      },
+    "Footer":{
+        "ask": "客服專線",
+        "asktime": "服務時間"
+    },
+    "Carousel":{
+        "title1": "Mepxy Marker套組限時特賣",
+        "detail1": "活動期間，Mepxy Marker套組買到賺到！",
+        "title2":"LED超薄型透寫台　ARTON SMART TRACER PRO好評販售中",
+        "detail2":"不同凡響，品質提升！使用日亞化學工業LED晶片",
+        "title3":"最推薦!　應有盡有繪畫套組。「初學者油畫入門套組」",
+        "detail3":"快速進入油畫世界的繪畫套組。"
+      }
+}

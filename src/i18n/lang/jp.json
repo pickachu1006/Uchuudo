@@ -1,0 +1,57 @@
+{
+  "Home":{
+    "fullshop": "全店共通",
+    "text1": "第15回世界絵画大賞展の日程を決定しました！！",
+    "text2": "マスキングテープ詰め放題開催",
+    "text3": "「2018年 冬の大コミックフェア」 開催中！！",
+    "seemore": "もっと見る",
+    "about-text1": "宇宙堂は平成31年、東京・新宿に",
+    "about-text2":"おいて創業いたしました。",
+    "about-text3":"会社概要を見る",
+    "gotolook": "を見る"
+  },  
+  "Shop":{
+    "price":"価格",
+    "seeproduct": "商品を見る",
+    "addtocart": "カートに入れる",
+    "nosaleprice": "参考価格",
+    "saleprice": "価格",
+    "number": "数量",
+    "total": "計"
+  },
+  "CustomerOrder":{
+    "cart": "ショッピングカート",
+    "products": "品物",
+    "price": "価格",
+    "coupon": "クーポン適用濟",
+    "finalprice": "割引価格",
+    "inputcode": "コードを入力",
+    "usecoupon":"クーポン適用",
+    "continueshopping":"ショッピングを続ける",
+    "receiver": "配送先"
+
+  },
+  "CustomerCheckout":{
+
+  },
+  "Navbar":{
+    "realshop": "店舗情報",
+    "newsArea": "お知らせ",
+    "aboutAs": "企業情報",
+    "onlineshop": "オンラインショップ",
+    "seecart": "カートを見る",
+    "addtocart": "カートに追加しました"
+  },
+  "Footer":{
+    "ask": "問い合わせ",
+    "asktime": "受付時間"
+  },
+  "Carousel":{
+    "title1": "メクシーマーカーセット期間限定セールのご案内",
+    "detail1": "期間中、メクシ―マーカーの対象セットがお買得！",
+    "title2":"LED超薄型トレース台　アートンスマートトレーサーＰＲＯ好評発売中",
+    "detail2":"従来品からグレードアップ！日亜化学工業製ＬＥＤチップを搭載",
+    "title3":"イチ押し!　すべて揃った画材セット。「初めての油絵スターターセット」",
+    "detail3":"油絵がすぐに始められる画材セットです。"
+  }
+}

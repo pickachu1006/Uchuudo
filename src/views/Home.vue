@@ -11,27 +11,27 @@
           <table class="table table-borderless">
             <tbody>
               <tr>
-                <th scope="row" width="100" class="pt-4">全店共通</th>
+                <th scope="row" width="100" class="pt-4">{{ $t("Home.fullshop") }}</th>
                 <td width="100" class="pt-4">2018/11/30</td>
                 <td width="80" class="text-right text-danger tag pt-4">NEW</td>
-                <td class="pt-4">第15回世界絵画大賞展の日程を決定しました！！</td>
+                <td class="pt-4">{{ $t("Home.text1") }}</td>
               </tr>
               <tr>
                 <th scope="row">新宿本店</th>
                 <td>2018/11/23</td>
                 <td class="tag"></td>
-                <td>マスキングテープ詰め放題開催!!</td>
+                <td>{{ $t("Home.text2") }}!!</td>
               </tr>
               <tr>
-                <th scope="row">全店共通</th>
+                <th scope="row">{{ $t("Home.fullshop") }}</th>
                 <td>2018/11/08</td>
                 <td class="tag"></td>
-                <td>「2018年 冬の大コミックフェア」 開催中！！</td>
+                <td>{{ $t("Home.text3") }}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <button type="button" class="btn btn-outline-light d-block mx-auto btn-lg mb-5 px-5">もっと見る</button>
+        <button type="button" class="btn btn-outline-light d-block mx-auto btn-lg mb-5 px-5">{{ $t("Home.seemore") }}</button>
       </section>
       <!-- 實體店家資訊 -->
       <section class="container-fluid bg-light" style="position: relative" id="realshop">
@@ -40,7 +40,7 @@
           <div class="col-md-7 pl-4 shop-list py-4">
             <div class="bigger-navi__detail container">
               <h2 class="bigger-navi__title text-contract">
-                <span class="english">SHOP</span>店舗情報
+                <span class="english">SHOP</span>{{ $t("Navbar.realshop") }}
               </h2>
               <div class="bigger-navi__shop-group row mt-4">
                 <div class="col-md-6">
@@ -122,14 +122,14 @@
           <div class="col-md-7 bg-cover p-0 photo aboutImg d-md-none"></div>
           <div class="col-md-5 bg-cover p-0 text-center py-5">
             <h2 class="bigger-navi__title text-contract">
-              <p class="english">COMPANY</p>企業情報
+              <p class="english">COMPANY</p>{{ $t("Navbar.aboutAs") }}
             </h2>
-            <p class="about-text">宇宙堂は平成31年、東京・新宿に
-              <br>おいて創業いたしました。
+            <p class="about-text">{{ $t("Home.about-text1") }}
+              <br>{{ $t("Home.about-text2") }}
               <br>
             </p>
             <p class="mt-4 about-text">
-              <a href="#">会社概要を見る</a>
+              <a href="#">{{ $t("Home.about-text3") }}</a>
             </p>
           </div>
           <div class="col-md-7 bg-cover p-0 photo aboutImg rwd"></div>
@@ -143,11 +143,11 @@
           >
             <div class="box text-center">
               <h2 class="bigger-navi__title text-contract">
-                <p class="english">ONLINE SHOP</p>宇宙堂オンラインショップ
+                <p class="english">ONLINE SHOP</p>宇宙堂{{ $t("Navbar.onlineshop") }}
               </h2>
               <br>
               <router-link to="/shop">
-                <button type="button" class="btn btn-outline-primary btn-lg">オンラインショップを見る</button>
+                <button type="button" class="btn btn-outline-primary btn-lg">{{ $t("Navbar.onlineshop")}}{{$t("Home.gotolook")}}</button>
               </router-link>
             </div>
           </div>
