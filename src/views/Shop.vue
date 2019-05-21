@@ -36,7 +36,7 @@
         <div class="col-md-9 mb-4">
           <div class="row">
             <div class="col-md-4 mb-4" v-for="item in filterData" :key="item.id">
-              <div class="card border-0 shadow-sm">
+              <div class="card border-0 shadow-sm h-100">
                 <div class="imgWrap text-center">
                   <img
                     class="productsImg"

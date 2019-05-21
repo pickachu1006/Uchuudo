@@ -38,7 +38,6 @@
 
 <script>
 import $ from "jquery";
-import {app} from '@/main.js'
 
 export default {
   name: "Footer",

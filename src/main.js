@@ -17,7 +17,6 @@ import i18n from '@/i18n/i18n-lang.js';
 
 Vue.use(VueAxios,axios);
 Vue.use(VeeValidate);
-// Vue.use( VueI18n );
 VeeValidate.Validator.localize('ja',jaValidate);
 Vue.config.productionTip = false;
 Vue.component('Loading',Loading)
@@ -51,16 +50,3 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-// i18n
-const messages = {
-  tw: {
-    message: {
-      hello: "客服專線"
-    }
-  },
-  ja: {
-    message: {
-      hello: "問い合わせ"
-    }
-  }
-};
